@@ -57,9 +57,8 @@ python sku_US.py
 
 :thought_balloon: Future Scope
 ---
-1.
-2.
-3.
+1. More efficient ways to handle 'Access Denied' issues without compromising on run time. Currently implemented using headers and requests.Session()
+2. Ways to handle inconsistent search results and dynamically generated content.
 
 :sparkles: Contributors
 ---
