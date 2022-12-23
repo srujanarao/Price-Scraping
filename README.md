@@ -47,7 +47,7 @@ python sku_US.py
 :question: Questions
 ---
 1. In IT Vendor portal, should we consider Batch Price or Retail Price ?
-2. In [www.cdw.ca](https://www.cdw.ca/) site, 9PXM(Tower and Rackmount) SKUs cannot be found in the search bar. So, is the final price supposed to be the mimimum price fetched among [www.pc-canada.com](http://www.pc-canada.com/) and [www.cendirect.com ](http://www.cendirect.com/) only ?
+2. In [www.cdw.ca](https://www.cdw.ca/) site, 9PXM(Tower and Rackmount) SKUs cannot be found in the search bar. So, is the final price supposed to be the mimimum price fetched among [www.pc-canada.com](http://www.pc-canada.com/) and [www.cendirect.com ](http://www.cendirect.com/) only?
 3. Inconsistent Search Results in [www.cendirect.com ](http://www.cendirect.com/)
 
 :golf: Next Steps
@@ -69,5 +69,5 @@ python sku_US.py
 :email: Support
 ---
 
-For any queries and help, please reach out to us at: rravi@ncsu.edu, smarnes@ncsu.edu, gsmith9@ncsu.edu
+For any queries and help, please reach out to us at: rravi@ncsu.edu, smarnes@ncsu.edu, lgsmith9@ncsu.edu
 
