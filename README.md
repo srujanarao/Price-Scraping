@@ -24,17 +24,22 @@ python sku_US.py
 ```
 :card_index_dividers: Some Examples
 ---
-#### 1. Running sku_US.py
-#### 2.
-#### 3.
+ 1. Running sku_US.py
+ 2.
+ 3.
 
 
 :page_facing_up: Sample Output
 ---
-#### 1. results_US.csv
-#### 2. results_CA.csv
-#### 3. results_CA_9PXM.csv
-#### 4. results_IT.csv
+ 1. results_US.csv
+ 2. results_CA.csv
+ 3. results_CA_9PXM.csv
+ 4. results_IT.csv
+
+:golf: Next Steps and Scope for Code Optimization
+---
+1. Fix scraping issues in sku_CA_9PXM.py due to dynamic urls and unstable search results
+2. Reduce run time of the scripts
 
 
 
