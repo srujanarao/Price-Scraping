@@ -43,9 +43,16 @@ python sku_US.py
 
 <p align="center"><img width="300" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_IT.png?raw=true"></p>
 
+
+:question: Questions
+---
+1. In IT Vendor portal, should we consider Batch Price or Retail Price ?
+2. In [www.cdw.ca](https://www.cdw.ca/) site, 9PXM(Tower and Rackmount) SKUs cannot be found in the search bar. So, is the final price supposed to be the mimimum price fetched among [www.pc-canada.com](http://www.pc-canada.com/) and [www.cendirect.com ](http://www.cendirect.com/) only ?
+3. Inconsistent Search Results in [www.cendirect.com ](http://www.cendirect.com/)
+
 :golf: Next Steps
 ---
-1. Fix scraping issues in ```sku_CA_9PXM.py``` due to dynamic urls and unstable search results
+1. Fix scraping issues in ```sku_CA_9PXM.py``` due to dynamic urls and inconsistent search results
 2. Reduce run time of the scripts
 
 :thought_balloon: Future Scope
