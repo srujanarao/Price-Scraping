@@ -52,7 +52,7 @@ python sku_US.py
 
 :golf: Next Steps
 ---
-- [ ] Fix scraping issues in ```sku_CA_9PXM.py``` due to dynamic urls and inconsistent search results
+- [ ] Fix scraping issues in ```sku_CA_9PXM.py``` due to dynamic urls and inconsistent search results <br/>
 - [X] Reduce run time of the scripts
 
 :thought_balloon: Future Scope
