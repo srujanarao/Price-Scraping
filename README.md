@@ -37,9 +37,12 @@ python sku_US.py
 :page_facing_up: Sample Output
 ---
  1. results_US.csv
- 2. results_CA.csv
- 3. results_CA_9PXM.csv
- 4. results_IT.csv
+ 
+ <p align="center"><img width="300" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_IT.png?raw=true"></p>
+ 
+ 3. results_CA.csv
+ 4. results_CA_9PXM.csv
+ 5. results_IT.csv
 
 :golf: Next Steps
 ---
