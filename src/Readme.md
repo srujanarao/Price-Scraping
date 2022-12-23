@@ -6,7 +6,7 @@
 1. Save the input sku files in ```UTF-8 enabled``` csv format. Skipping this step will lead to errors during script execution. 
 <br> ```File -> Save As -> CSV UTF-8(.csv)```</br>
 
-<p align="center"><img width="450" src="./assets/utf8_csv.png"></p>
+<p align="center"><img width="450" src="././assets/utf8_csv.png"></p>
 
 2. Clone the Github repository to a desired location on your computer. You will need [git](https://git-scm.com/) to be preinstalled on your machine. Once the repository is cloned, you will then ```cd``` into the local repository.
 ```
