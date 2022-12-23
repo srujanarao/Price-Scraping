@@ -58,4 +58,8 @@ python sku_US.py
 - [Srujana Marne Shiva Rao](https://github.com/srujanarao)
 - Landon Smith
 
+:email: Support
+---
+
+For any queries and help, please reach out to us at: rravi@ncsu.edu, smarnes@ncsu.edu, gsmith9@ncsu.edu
 
