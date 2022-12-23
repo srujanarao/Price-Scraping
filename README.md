@@ -37,8 +37,8 @@ python sku_US.py
 :page_facing_up: Sample Output
 ---
  1. results_US.csv
- 
- 
+
+ <p align="center"><img width="800" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_US.png?raw=true"></p>
  
  2. results_CA.csv
  
