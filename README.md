@@ -27,12 +27,6 @@ python3 sku_US.py
 For Windows
 python sku_US.py
 ```
-:card_index_dividers: Some Examples
----
- 1. Running sku_US.py
- 2.
- 3.
-
 
 :page_facing_up: Sample Output
 ---
