@@ -41,10 +41,16 @@ python sku_US.py
  3. results_CA_9PXM.csv
  4. results_IT.csv
 
-:golf: Next Steps and Scope for Code Optimization
+:golf: Next Steps
 ---
 1. Fix scraping issues in sku_CA_9PXM.py due to dynamic urls and unstable search results
 2. Reduce run time of the scripts
+
+:thought_balloon: Future Scope
+---
+1.
+2.
+3.
 
 
 
