@@ -1,107 +1,125 @@
 from bs4 import BeautifulSoup, SoupStrainer
 import requests
 from getuseragent import UserAgent
+import undetected_chromedriver as uc
+import time
 import pandas as pd
-import httplib2
-from urllib.request import Request, urlopen
-import re
 import ssl
+import csv
 ssl._create_default_https_context = ssl._create_unverified_context
-# from selenium import webdriver
-# from selenium.webdriver.firefox.options import Options
 
-# data = pd.read_csv('ca_sku_file.csv')
-# sku_list = data['SKU'].tolist()
-# sku_list = [sku for sku in sku_list if str(sku) != 'nan']
+csv_file = open('Results_CA_9PXM.csv', 'w')
+csv_writer = csv.writer(csv_file)
+csv_writer.writerow(['SKU', 'Price'])
+
+data = pd.read_csv('input_file_CA_9PXM.csv')
+sku_list = data['SKU'].tolist()
+sku_list = [sku for sku in sku_list if str(sku) != 'nan']
 
 product_names_list = []
 cdw_parts_list = []
 min_price_list = []
-url3_list = []
-records = []
 
-#sku = 'SYA12K16P'
-# sku = 'SYA4K8P'
-sku_list = ['SYA4K8P']
+myuseragent = UserAgent("all", requestsPrefix=True).Random()
+session = requests.Session()
+driver = uc.Chrome(headless=False)
+main_url = f'https://www.pc-canada.com'
+driver.get(main_url)
+time.sleep(15)
 
-price_list = []
-# url_1 = f'https://www.cdw.ca/search/?key={sku}'
-# myuseragent = UserAgent("all", requestsPrefix=True).Random()
-# session = requests.Session()
-# source = session.get(url_1, headers=myuseragent, allow_redirects=False).text
-# soup = BeautifulSoup(source, 'lxml')
-#
-# try:
-#     price_url_content = soup.find('div', class_='container').script.text.split('"')[1]
-#     generic_url = 'https://www.cdw.ca'
-#     price_url = generic_url + (price_url_content)
-#
-#     source = session.get(price_url, headers=myuseragent, allow_redirects=False).text
-#     soup = BeautifulSoup(source, 'lxml')
-#     price_1 = soup.find('span', class_='price-type-selected').text
-#     price_list.append(price_1)
-#     product_name = soup.find('h1', class_='fn').text
-#     # product_names_list.append(product_name)
-#     cdw_part = soup.find('span', class_='edc').text
-#     # cdw_parts_list.append(cdw_part)
-#
-#     print(sku, price_1, product_name, cdw_part)
-#     print()
-#
-# except Exception as e:
-#     price_1 = "SKU Not found"
-#     # price_list.append(price)
-#     # product_name = "Not applicable"
-#     # product_names_list.append(product_name)
-#     # cdw_part = "Not applicable"
-#     # cdw_parts_list.append(cdw_part)
-#     # print(sku, "SKU Not found", "Not applicable", "Not applicable")
-#     # print()
 for sku in sku_list:
-    price_list = []
-    url3_list = []
-    url_2 = f'https://www.pc-canada.com/item/{sku}'
-    url_3 = f'https://www.cendirect.com/main_en/find_simple.php?rSearchKeyword={sku}'
-    myuseragent = UserAgent("all", requestsPrefix=True).Random()
-    session = requests.Session()
+    sku_prices = []
 
-    # source = session.get(url_3, headers=myuseragent, allow_redirects=False).text
-    # soup = BeautifulSoup(source, 'lxml')
+    url_1 = f'https://www.cdw.ca/search/?key={sku}'
+    source = session.get(url_1, headers=myuseragent, allow_redirects=True).text
+    soup = BeautifulSoup(source, 'lxml')
 
-    # req = Request(url_3)
-    # html_page = urlopen(req)
-    # soup = BeautifulSoup(html_page, "lxml")
+    try:
+        price_url_content = soup.find('div', class_='container').script.text.split('"')[1]
+        generic_url = 'https://www.cdw.ca'
+        price_url = generic_url + (price_url_content)
+        source = session.get(price_url, headers=myuseragent, allow_redirects=False).text
+        soup = BeautifulSoup(source, 'lxml')
+        price_1 = soup.find('span', class_='price-type-selected').text
+        sku_prices.append(price_1)
+        product_name = soup.find('h1', class_='fn').text
+        # product_names_list.append(product_name)
+        cdw_part = soup.find('span', class_='edc').text
+        # cdw_parts_list.append(cdw_part)
 
-#     links = []
-#     for link in soup.findAll('a'):
-#         links.append(link.get('href'))
-#
-#     for link in links:
-#         if sku in str(link):
-#             url3_list.append(link)
-#
-#
-#     if len(url3_list) > 2:
-#         print(url3_list)
-#         url3_final = url3_list[1]
-#     else:
-#         print(url3_list)
-#         url3_final = url3_list[0]
-#
-#     source = session.get(url3_final, headers=myuseragent, allow_redirects=True).text
-#     soup = BeautifulSoup(source, 'lxml')
-#     print(sku)
-#     price_3 = soup.find_all('b')
-#     print(price_3)
-#     price_3 = str(soup.find_all('b')[7].text).strip('$')
-#
-#     price_list.append(price_3)
-#     min_price = min(price_list)
-#     min_price_list.append(min_price)
-#
-# print(min_price_list)
+        # print(sku, price_1, product_name, cdw_part)
+        print()
 
+    except Exception as e:
+        price_1 = "SKU Not found"
+        # print(price_1)
+        # price_list.append(price)
+        # product_name = "Not applicable"
+        # product_names_list.append(product_name)
+        # cdw_part = "Not applicable"
+        # cdw_parts_list.append(cdw_part)
+        # print(sku, "SKU Not found", "Not applicable", "Not applicable")
+        # print()
 
-source = session.get(url_2, headers=myuseragent, allow_redirects=False).text
-soup = BeautifulSoup(source, 'lxml')
-print(soup.prettify())
+    url2_list = []
+    url_2 = f'https://www.cendirect.com/main_en/find_simple.php?rSearchKeyword={sku}'
+    source = session.get(url_2, headers=myuseragent, allow_redirects=False).text
+    soup = BeautifulSoup(source, 'lxml')
+
+    links = []
+    for link in soup.findAll('a'):
+        links.append(link.get('href'))
+
+    for link in links:
+        if f'/main_en/tech-specs-{sku}-' in str(link):
+            url2_list.append(link)
+
+    if len(url2_list) == 0:
+        url2_final = "SKU Not Found"
+    else:
+        url2_final = url2_list[0]
+
+    if url2_final != "SKU Not Found":
+        source = session.get(url2_final, headers=myuseragent, allow_redirects=True).text
+        soup = BeautifulSoup(source, 'lxml')
+        price_2 = soup.find_all('b')
+        price_2 = soup.find_all('b')[7].text
+        if '$' in price_2:
+            price_2 = str(price_2).strip('$')
+            sku_prices.append(price_2)
+        else:
+            print("URL 2 is unstable. Search bar not yielding any results \n")
+
+    url_3 = f'https://www.pc-canada.com/item/{sku}'
+    # print("part 3")
+    driver.get(url_3)
+    soup = BeautifulSoup(driver.page_source, 'lxml')
+    try:
+        mfgr = soup.find('span', class_='active-crumb').text
+        if str(mfgr) == sku:
+            price_3 = soup.find('p',
+                                class_='d-flex align-items-center mb-0 lh-1 text-red-500 fs-3xl fs-lg-4xl fs-xxxl-5xl '
+                                       'fw-bold').text
+            price_3 = price_3.strip().strip('$')
+            sku_prices.append(price_3)
+
+        else:
+            price_3 = "SKU Not Found in url3"
+    except:
+        price_3 = "SKU Not Found in url3"
+
+    print(f"SKU {sku} Prices from different websites are: {sku_prices} ")
+    try:
+        sku_min_price = min(sku_prices)
+        print(f"SKU {sku}'s minimum price : {sku_min_price} ")
+        print()
+        min_price_list.append(sku_min_price)
+    except:
+        print(f"SKU {sku} does not have a price listed in all 3 sites")
+        sku_min_price = "SKU Not Found"
+        min_price_list.append(sku_min_price)
+
+for i in range(len(sku_list)):
+    print()
+    print(sku_list[i], min_price_list[i])
+    csv_writer.writerow([sku_list[i], min_price_list[i]])
