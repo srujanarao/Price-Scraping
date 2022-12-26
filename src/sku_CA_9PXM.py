@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup, SoupStrainer
+from bs4 import BeautifulSoup
 import requests
 from getuseragent import UserAgent
 import undetected_chromedriver as uc
@@ -6,6 +6,7 @@ import time
 import pandas as pd
 import ssl
 import csv
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 csv_file = open('Results_CA_9PXM.csv', 'w')
@@ -15,15 +16,13 @@ csv_writer.writerow(['SKU', 'Price'])
 data = pd.read_csv('input_file_CA_9PXM.csv')
 sku_list = data['SKU'].tolist()
 sku_list = [sku for sku in sku_list if str(sku) != 'nan']
-
-product_names_list = []
-cdw_parts_list = []
 min_price_list = []
 
 myuseragent = UserAgent("all", requestsPrefix=True).Random()
 session = requests.Session()
-driver = uc.Chrome(headless=False)
+
 main_url = f'https://www.pc-canada.com'
+driver = uc.Chrome(headless=False)
 driver.get(main_url)
 time.sleep(15)
 
@@ -31,7 +30,7 @@ for sku in sku_list:
     sku_prices = []
 
     url_1 = f'https://www.cdw.ca/search/?key={sku}'
-    source = session.get(url_1, headers=myuseragent, allow_redirects=True).text
+    source = session.get(url_1, headers=myuseragent, allow_redirects=False).text
     soup = BeautifulSoup(source, 'lxml')
 
     try:
@@ -42,24 +41,9 @@ for sku in sku_list:
         soup = BeautifulSoup(source, 'lxml')
         price_1 = soup.find('span', class_='price-type-selected').text
         sku_prices.append(price_1)
-        product_name = soup.find('h1', class_='fn').text
-        # product_names_list.append(product_name)
-        cdw_part = soup.find('span', class_='edc').text
-        # cdw_parts_list.append(cdw_part)
-
-        # print(sku, price_1, product_name, cdw_part)
-        print()
 
     except Exception as e:
         price_1 = "SKU Not found"
-        # print(price_1)
-        # price_list.append(price)
-        # product_name = "Not applicable"
-        # product_names_list.append(product_name)
-        # cdw_part = "Not applicable"
-        # cdw_parts_list.append(cdw_part)
-        # print(sku, "SKU Not found", "Not applicable", "Not applicable")
-        # print()
 
     url2_list = []
     url_2 = f'https://www.cendirect.com/main_en/find_simple.php?rSearchKeyword={sku}'
@@ -91,7 +75,6 @@ for sku in sku_list:
             print("URL 2 is unstable. Search bar not yielding any results \n")
 
     url_3 = f'https://www.pc-canada.com/item/{sku}'
-    # print("part 3")
     driver.get(url_3)
     soup = BeautifulSoup(driver.page_source, 'lxml')
     try:
@@ -105,8 +88,12 @@ for sku in sku_list:
 
         else:
             price_3 = "SKU Not Found in url3"
+            print(price_3)
+            print("a")
     except:
         price_3 = "SKU Not Found in url3"
+        print(price_3)
+        print("b")
 
     print(f"SKU {sku} Prices from different websites are: {sku_prices} ")
     try:
