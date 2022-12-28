@@ -16,10 +16,12 @@ csv_writer.writerow(['SKU', 'Price'])
 data = pd.read_csv('input_file_CA_9PXM.csv')
 sku_list = data['SKU'].tolist()
 sku_list = [sku for sku in sku_list if str(sku) != 'nan']
+# sku_list = ['9PXM8S4K', '9PXM8S8K']
 min_price_list = []
 
 myuseragent = UserAgent("all", requestsPrefix=True).Random()
 session = requests.Session()
+time.sleep(5)
 
 main_url = f'https://www.pc-canada.com'
 driver = uc.Chrome(headless=False)
@@ -28,9 +30,8 @@ time.sleep(15)
 
 for sku in sku_list:
     sku_prices = []
-
-    url_1 = f'https://www.cdw.ca/search/?key={sku}'
-    source = session.get(url_1, headers=myuseragent, allow_redirects=False).text
+    url = f'https://www.cdw.ca/search/?key={sku}'
+    source = session.get(url, headers=myuseragent, allow_redirects=False).text
     soup = BeautifulSoup(source, 'lxml')
 
     try:
@@ -43,7 +44,21 @@ for sku in sku_list:
         sku_prices.append(price_1)
 
     except Exception as e:
-        price_1 = "SKU Not found"
+        try:
+            search_list = soup.find_all('div', class_='search-result coupon-check')
+            sku_found = False
+            for product in search_list:
+                mfg = product.find('span', class_='mfg-code').text
+                mfg = mfg[6:]
+                if sku == mfg:
+                    sku_found = True
+                    price_1 = product.find('div', class_='price-type-price').text
+                    sku_prices.append(price_1)
+            if not sku_found:
+                price_1 = "SKU exact match not found"
+
+        except Exception as e:
+            price_1 = "SKU exact match not found"
 
     url2_list = []
     url_2 = f'https://www.cendirect.com/main_en/find_simple.php?rSearchKeyword={sku}'
