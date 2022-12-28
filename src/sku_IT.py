@@ -6,18 +6,16 @@ import csv
 
 csv_file = open('Results_IT.csv', 'w')
 csv_writer = csv.writer(csv_file)
-csv_writer.writerow(['SKU', 'Price'])
+csv_writer.writerow(['SKU', 'Batch_Price'])
 
 data = pd.read_csv('input_file_IT.csv')
 sku_list = data['SKU'].tolist()
 sku_list = [sku for sku in sku_list if str(sku) != 'nan']
-# sku_list = ['NDRB1500', 'SMC1000C', 'GVSUPS30K0B5FS']
 price_list = []
-records = {}
 login_page = 'https://www.ingrammicro.com/IMD_WASWeb/jsp/login/corporateVendorLogin.jsp'
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False, slow_mo=100)
+    browser = p.chromium.launch(headless=False)
     page = browser.new_page()
     page.goto(login_page)
     page.fill('input#username-field', IT_creds.USER)
