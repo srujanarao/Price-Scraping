@@ -11,32 +11,32 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 csv_file = open('Results_CA_9PXM.csv', 'w')
 csv_writer = csv.writer(csv_file)
-csv_writer.writerow(['SKU', 'Price'])
+csv_writer.writerow(['SKU', 'Minimum Price', 'Source'])
 
 data = pd.read_csv('input_file_CA_9PXM.csv')
 sku_list = data['SKU'].tolist()
 sku_list = [sku for sku in sku_list if str(sku) != 'nan']
-# sku_list = ['9PXM8S4K', '9PXM8S8K']
 min_price_list = []
+site_list = []
+generic_url = 'https://www.cdw.ca'
+main_url = f'https://www.pc-canada.com'
+driver = uc.Chrome(headless=False)
+driver.get(main_url)
+time.sleep(10)
 
 myuseragent = UserAgent("all", requestsPrefix=True).Random()
 session = requests.Session()
 time.sleep(5)
 
-main_url = f'https://www.pc-canada.com'
-driver = uc.Chrome(headless=False)
-driver.get(main_url)
-time.sleep(15)
-
 for sku in sku_list:
     sku_prices = []
+    site_1 = 'www.cdw.ca'
     url = f'https://www.cdw.ca/search/?key={sku}'
     source = session.get(url, headers=myuseragent, allow_redirects=False).text
     soup = BeautifulSoup(source, 'lxml')
 
     try:
         price_url_content = soup.find('div', class_='container').script.text.split('"')[1]
-        generic_url = 'https://www.cdw.ca'
         price_url = generic_url + (price_url_content)
         source = session.get(price_url, headers=myuseragent, allow_redirects=False).text
         soup = BeautifulSoup(source, 'lxml')
@@ -60,6 +60,7 @@ for sku in sku_list:
         except Exception as e:
             price_1 = "SKU exact match not found"
 
+    site_2 = 'www.cendirect.com'
     url2_list = []
     url_2 = f'https://www.cendirect.com/main_en/find_simple.php?rSearchKeyword={sku}'
     source = session.get(url_2, headers=myuseragent, allow_redirects=False).text
@@ -84,11 +85,12 @@ for sku in sku_list:
         price_2 = soup.find_all('b')
         price_2 = soup.find_all('b')[7].text
         if '$' in price_2:
-            price_2 = str(price_2).strip('$')
+            price_2 = str(price_2).strip()
             sku_prices.append(price_2)
         else:
             print("URL 2 is unstable. Search bar not yielding any results \n")
 
+    site_3 = 'www.pc-canada.com'
     url_3 = f'https://www.pc-canada.com/item/{sku}'
     driver.get(url_3)
     soup = BeautifulSoup(driver.page_source, 'lxml')
@@ -98,7 +100,7 @@ for sku in sku_list:
             price_3 = soup.find('p',
                                 class_='d-flex align-items-center mb-0 lh-1 text-red-500 fs-3xl fs-lg-4xl fs-xxxl-5xl '
                                        'fw-bold').text
-            price_3 = price_3.strip().strip('$')
+            price_3 = price_3.strip()
             sku_prices.append(price_3)
 
         else:
@@ -113,15 +115,24 @@ for sku in sku_list:
     print(f"SKU {sku} Prices from different websites are: {sku_prices} ")
     try:
         sku_min_price = min(sku_prices)
-        print(f"SKU {sku}'s minimum price : {sku_min_price} ")
+        if sku_min_price == price_1:
+            site = site_1
+        elif sku_min_price == price_2:
+            site = site_2
+        elif sku_min_price == price_3:
+            site = site_3
+        print(f"SKU {sku}'s minimum price : {sku_min_price}  and site : {site}")
         print()
         min_price_list.append(sku_min_price)
+        site_list.append(site)
     except:
         print(f"SKU {sku} does not have a price listed in all 3 sites")
-        sku_min_price = "SKU Not Found"
+        sku_min_price = "SKU not found in all 3 sites"
+        site = "SKU not found in all 3 sites"
         min_price_list.append(sku_min_price)
+        site_list.append(site)
 
 for i in range(len(sku_list)):
     print()
     print(sku_list[i], min_price_list[i])
-    csv_writer.writerow([sku_list[i], min_price_list[i]])
+    csv_writer.writerow([sku_list[i], min_price_list[i], site_list[i]])
