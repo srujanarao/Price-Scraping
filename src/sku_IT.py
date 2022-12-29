@@ -3,12 +3,25 @@ from bs4 import BeautifulSoup
 import IT_creds
 import pandas as pd
 import csv
+import sys
+from datetime import datetime
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
-csv_file = open('Results_IT.csv', 'w')
+current_datetime = datetime.now()
+str_current_datetime = str(current_datetime)
+results_file = 'Results_IT_'+str_current_datetime+'.csv'
+csv_file = open(results_file, 'w')
 csv_writer = csv.writer(csv_file)
 csv_writer.writerow(['SKU', 'Batch_Price'])
 
-data = pd.read_csv('input_file_IT.csv')
+try:
+    input_file = sys.argv[1]
+except:
+    print("Input filename missing from the argument list")
+    sys.exit()
+
+data = pd.read_csv(input_file)
 sku_list = data['SKU'].tolist()
 sku_list = [sku for sku in sku_list if str(sku) != 'nan']
 price_list = []
