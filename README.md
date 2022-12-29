@@ -5,6 +5,10 @@
   ::
   <a href="#page_facing_up-passing-input-files">Input Files</a>
   ::
+  <a href="#pushpin-key-points-and-recommendations">Key Points</a>
+  ::
+  <a href="#warning-known-issues">Known Issues</a>
+  ::
   <a href="#thought_balloon-future-scope">Future Scope</a>
   ::
   <a href="#sparkles-contributors">Contributors</a>
@@ -73,7 +77,22 @@ Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_name' 
 :pushpin: Key Points and Recommendations
 ---
 #### 1. Bypassing Cloudflare
-www.pc-canada.com is secured by Cloudflare (a company that provides security services to websites) to verify that the request is made by a real browser and not by a bot/script. So, ```sku_CA_9PXM.py``` script makes use of 'undetected-chromedriver', an optimized Selenium Chromedriver patch to bypass Cloudflare by posing as a real browser. However, we do not recommend  using the script to bypass the browser check in a long run.
+www.pc-canada.com is secured by ```Cloudflare``` , a company that provides security services to websites to verify that the request is made by a real browser and not by a bot/script. So, ```sku_CA_9PXM.py``` script makes use of 'undetected-chromedriver', an optimized Selenium Chromedriver patch to bypass Cloudflare by posing as a real browser. However, we do not recommend  using the script to bypass the browser check in a long run.
+
+#### 2. CSV Results
+Note that each time a script is run a new csv output file is generated and the names are distinguishable by ```time stamps```. So, file contents are not overwritten and hence old logs need to be manually deleted if needed. Some examples of sample output files are attached below.
+
+* ***Results_US_.csv***
+<p align="center"><img width="500" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_US.png?raw=true"></p>
+
+* ***Results_CA_.csv***
+<p align="center"><img width="500" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_CA.png?raw=true"></p>
+
+* ***Results_CA_9PXM.csv***
+<p align="center"><img width="300" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/results_CA_9pxm.png?raw=true"></p>
+
+* ***Results_IT.csv***
+<p align="center"><img width="250" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/IT_results.png?raw=true"></p>
 
 :warning: Known Issues
 ---
@@ -84,8 +103,8 @@ It is observed that www.cendirect.com some times displays irrelevant results upo
 
 :thought_balloon: Future Scope
 ---
-1. More efficient ways to handle 'Access Denied' issues without compromising on run time. Currently implemented using headers and requests.Session()
-2. Ways to handle inconsistent search results and dynamically generated content.
+1. More efficient ways to handle 'Access Denied' issues without compromising on run time. Currently implemented using ```headers, usergants and requests.Session()```
+2. More Ways to handle intermittent inconsistent search results in www.cendirect.com
 
 :sparkles: Contributors
 ---
