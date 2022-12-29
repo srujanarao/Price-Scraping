@@ -109,7 +109,7 @@ It is observed that www.cendirect.com some times displays irrelevant results upo
 :sparkles: Contributors
 ---
 - Rakesh Ravi
-- [Srujana Shiva Rao](https://github.com/srujanarao)
+- Srujana Shiva Rao
 - Landon Smith
 
 :email: Support
