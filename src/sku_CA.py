@@ -22,7 +22,7 @@ except Exception as e:
     print("Input filename missing from the argument list")
     sys.exit()
 
-data = pd.read_csv('input_file_CA.csv')
+data = pd.read_csv(input_file)
 sku_list = data['SKU'].tolist()
 sku_list = [sku for sku in sku_list if str(sku) != 'nan']
 price_list = []
