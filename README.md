@@ -78,7 +78,7 @@ Run/Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_na
 :sparkles: Contributors
 ---
 - Rakesh Ravi
-- [Srujana Marne Shiva Rao](https://github.com/srujanarao)
+- [Srujana Shiva Rao](https://github.com/srujanarao)
 - Landon Smith
 
 :email: Support
