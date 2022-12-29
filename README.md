@@ -1,5 +1,18 @@
 # README.md
 
+<p align="center">
+  <a href="#rocket-installation-steps">Installation</a>
+  ::
+  <a href="#page_facing_up-passing-input-files-command-line-arguments-and-setting-ide-script-parameters">Input Files</a>
+  ::
+  <a href="#thought_balloon-future-scope">Future Scope</a>
+  ::
+  <a href="#sparkles-contributors">Contributors</a>
+    ::
+  <a href="#email-support">Support</a>
+  
+</p>
+
 
 :rocket: Installation Steps
 ---
