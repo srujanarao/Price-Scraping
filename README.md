@@ -1,5 +1,3 @@
-# README.md
-
 <p align="center">
   <a href="#book-project-description">Description</a>
   ::
