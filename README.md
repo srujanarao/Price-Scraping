@@ -20,7 +20,7 @@ This Project scrapes price data of SKUs from various websites. There are a total
 
 * ***sku_CA.py***: This script is for scraping price from www.cdw.ca. Note that this script does not cover 9PXM Tower and 9PXM Rackmount categories. So, you can remove those 2 categories of SKUs from the input SKU file.
 
-* ***sku_CA_9PXM.py*** : This script covers only 9PXM Tower and 9PXM Rackmount categories by visiting 3 different sites i.e., www.cdw.ca, www.pc-canada.com, and www.cendirect.com. The lowest price found in these 3 sites is updated as the ‘price’ corresponding to the SKU. You can remove all the other categories of SKUs from this input SKU file.
+* ***sku_CA_9PXM.py*** : www.cdw.ca, www.pc-canada.com, and www.cendirect.com. The lowest price found in these 3 sites is updated as the ‘price’ corresponding to the SKU. You can remove all the other categories of SKUs from this input SKU file.
 
 * ***sku_IT.py***: This script is for scraping the price from www.ingrammicro.com. You need to have the login credentials locally stored in a file named ‘IT_creds.py’
 
@@ -70,7 +70,8 @@ Run/Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_na
 
 :pushpin: Key Points and Recommendations
 ---
-1. 
+* ***Bypassing Cloudflare***: www.pc-canada.com is secured by Cloudflare (a company that provides security services to websites) to verify that the request is made by a real browser and not by a bot/script. So, ```sku_CA_9PXM.py``` script makes use of 'undetected-chromedriver', an optimized Selenium Chromedriver patch to bypass Cloudflare by posing as a real browser. However, we do not recommend  using the script to bypass the browser check for a long term.
+* ***Google Chrome browser installation***: ```sku_CA_9PXM.py``` and ```sku_IT.py``` scripts use google chrome during their execution. As a result, a chrome browser instance will automatically launch when the scripts are triggered. Please note that the variable ```headless=True``` should not be changed to False. Otherwise the script is most likely to fail browser checks resulting in incorrect results.
 
 :thought_balloon: Future Scope
 ---
