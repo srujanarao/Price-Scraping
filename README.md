@@ -18,7 +18,7 @@
   
 :book: Project Description
 ---
-This Project scrapes price data of SKUs from various websites. There are a total of 4 python scripts.
+The goal of this project is to scrape price data of products based on their unique SKU numbers from a set of websites. There are 4 python scripts in total.
 
 * ***sku_US.py*** : This script is for scraping the price from  www.cdw.com.
 
@@ -96,7 +96,7 @@ Note that each time a script is run a new csv output file is generated and the n
 
 :warning: Known Issues
 ---
-#### 1. Unstable search results
+####  Unstable Search Results
 It is observed that www.cendirect.com some times displays irrelevant results upon entering SKU in the search bar. Home page contents get displayed rather than a redirection to the relevant product results. This is an ```intermittent website issue``` and usually gets resolved after a couple of hours. So, attempt to rerun the ```sku_CA_9PXM.py``` script after a few hours. Whenever this issue occurs, the script is written in a way to print and log the below message. 
 
 <p align="center"><img width="600" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/incorrect%20SR.png?raw=true"></p>
@@ -104,7 +104,7 @@ It is observed that www.cendirect.com some times displays irrelevant results upo
 :thought_balloon: Future Scope
 ---
 1. More efficient ways to handle 'Access Denied' issues without compromising on run time. Currently implemented using ```headers, usergants and requests.Session()```
-2. More Ways to handle intermittent inconsistent search results in www.cendirect.com
+2. More ways to handle intermittent inconsistent search results in www.cendirect.com
 
 :sparkles: Contributors
 ---
