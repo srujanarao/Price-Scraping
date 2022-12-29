@@ -45,6 +45,8 @@ pip3 install -r requirements.txt
 
 <p align="center"><img width="400" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/IT_creds.png?raw=true"></p>
 
+5. ***Install Google Chrome Browser***:  ```sku_CA_9PXM.py``` and ```sku_IT.py``` scripts need Google Chrome browser for their execution. As a result, a chrome browser instance will automatically launch when the scripts are triggered. Please note that the variable ```headless=True``` should not be changed to False. Otherwise the scripts are most likely to fail browser checks resulting in incorrect results.
+
 5. Once all the requirements are installed, you will have to ```cd``` into the ```src``` folder. Once in the ```src``` folder, use the python3 command to run the ```.py``` scripts along with the name of the appropriate input file. python command can be allowed to point to Python 3 too.
 ```
 cd src
@@ -71,7 +73,6 @@ Run/Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_na
 :pushpin: Key Points and Recommendations
 ---
 * ***Bypassing Cloudflare***: www.pc-canada.com is secured by Cloudflare (a company that provides security services to websites) to verify that the request is made by a real browser and not by a bot/script. So, ```sku_CA_9PXM.py``` script makes use of 'undetected-chromedriver', an optimized Selenium Chromedriver patch to bypass Cloudflare by posing as a real browser. However, we do not recommend  using the script to bypass the browser check for a long term.
-* ***Google Chrome browser installation***: ```sku_CA_9PXM.py``` and ```sku_IT.py``` scripts use google chrome during their execution. As a result, a chrome browser instance will automatically launch when the scripts are triggered. Please note that the variable ```headless=True``` should not be changed to False. Otherwise the script is most likely to fail browser checks resulting in incorrect results.
 
 :thought_balloon: Future Scope
 ---
