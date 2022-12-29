@@ -4,12 +4,23 @@ from getuseragent import UserAgent
 import pandas as pd
 import csv
 import time
+import sys
+from datetime import datetime
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
-csv_file = open('Results_CA.csv', 'w')
+current_datetime = datetime.now()
+str_current_datetime = str(current_datetime)
+results_file = 'Results_CA_'+str_current_datetime+'.csv'
+csv_file = open(results_file, 'w')
 csv_writer = csv.writer(csv_file)
 csv_writer.writerow(['SKU', 'Price', 'Product_Name', 'CDW_Part'])
+
+try:
+    input_file = sys.argv[1]
+except Exception as e:
+    print("Input filename missing from the argument list")
+    sys.exit()
 
 data = pd.read_csv('input_file_CA.csv')
 sku_list = data['SKU'].tolist()
