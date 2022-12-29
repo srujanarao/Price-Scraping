@@ -17,10 +17,10 @@ cd Price-Scraping
 ```
 pip3 install -r requirements.txt
 ```
-4. Once all the requirements are installed, you will have to ```cd``` into the ```src``` folder. Once in the ```src``` folder, use the python3 command to run the ```.py``` files. python command can be allowed to point to Python 3 too.
+4. Once all the requirements are installed, you will have to ```cd``` into the ```src``` folder. Once in the ```src``` folder, use the python3 command to run the ```.py``` scripts along with the name of the appropriate input file. python command can be allowed to point to Python 3 too.
 ```
 cd src
-python3 sku_US.py 
+python3 sku_US.py input_file_US.csv
 ```
 
 :page_facing_up: Sample Output
@@ -38,17 +38,9 @@ python3 sku_US.py
 
 <p align="center"><img width="300" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_IT.png?raw=true"></p>
 
-
-:question: Questions
+:golf: Command line arguments
 ---
-1. In IT Vendor portal, should we consider Batch Price or Retail Price ?
-2. In [www.cdw.ca](https://www.cdw.ca/) site, 9PXM(Tower and Rackmount) SKUs cannot be found in the search bar. So, is the final price supposed to be the mimimum price fetched among [www.pc-canada.com](http://www.pc-canada.com/) and [www.cendirect.com ](http://www.cendirect.com/) only?
-3. Inconsistent Search Results in [www.cendirect.com ](http://www.cendirect.com/)
-
-:golf: Next Steps
----
-- [ ] Fix scraping issues in ```sku_CA_9PXM.py``` due to dynamic urls and inconsistent search results <br/>
-- [X] Reduce run time of the scripts
+1. The first way of passing an input file to the script is through command line arguments.
 
 :thought_balloon: Future Scope
 ---
