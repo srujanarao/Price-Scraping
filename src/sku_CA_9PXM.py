@@ -3,17 +3,28 @@ import requests
 from getuseragent import UserAgent
 import undetected_chromedriver as uc
 import time
+import sys
+from datetime import datetime
 import pandas as pd
 import ssl
 import csv
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-csv_file = open('Results_CA_9PXM.csv', 'w')
+current_datetime = datetime.now()
+str_current_datetime = str(current_datetime)
+results_file = 'Results_CA_9PXM_'+str_current_datetime+'.csv'
+csv_file = open(results_file, 'w')
 csv_writer = csv.writer(csv_file)
-csv_writer.writerow(['SKU', 'Minimum Price', 'Source'])
+csv_writer.writerow(['SKU', 'Price', 'Product_Name', 'CDW_Part'])
 
-data = pd.read_csv('input_file_CA_9PXM.csv')
+try:
+    input_file = sys.argv[1]
+except:
+    print("Input filename missing from the argument list")
+    sys.exit()
+
+data = pd.read_csv(input_file)
 sku_list = data['SKU'].tolist()
 sku_list = [sku for sku in sku_list if str(sku) != 'nan']
 min_price_list = []
@@ -121,7 +132,7 @@ for sku in sku_list:
             site = site_2
         elif sku_min_price == price_3:
             site = site_3
-        print(f"SKU {sku}'s minimum price : {sku_min_price}  and site : {site}")
+        print(f"SKU: {sku} Minimum Price: {sku_min_price}  Source: {site}")
         print()
         min_price_list.append(sku_min_price)
         site_list.append(site)
@@ -136,3 +147,5 @@ for i in range(len(sku_list)):
     print()
     print(sku_list[i], min_price_list[i])
     csv_writer.writerow([sku_list[i], min_price_list[i], site_list[i]])
+
+csv_file.close()
