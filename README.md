@@ -31,7 +31,7 @@ python3 sku_CA.py input_file_CA.csv
 ```
 2. You can also make us of ```Script Parameters``` of an IDE like PyCharm to automatically submit the input file.
 ```
-Run -> Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_name' in 'Parameters'
+Run/Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_name' in 'Parameters'
 ```
 
 <p align="center"><img width="400" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/edit_configurations.png?raw=true"></p>
