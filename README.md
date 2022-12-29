@@ -38,13 +38,19 @@ python3 sku_US.py input_file_US.csv
 
 <p align="center"><img width="300" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_IT.png?raw=true"></p>
 
-:golf: Command line arguments
+:golf: Passing Input Files: Command line arguments and setting IDE script parameters
 ---
-1. The first way of passing an input file to the script is through command line arguments. Ensure that the input files are saved in the same folder as the .py scripts. 
+1. The first way of passing an input file to the script is through ```command line arguments```. Ensure that the input files are saved in the same folder as the .py scripts. 
 ```
 python3 sku_CA.py input_file_CA.csv
 ```
-2. You can also make us of 'Script Parameters' of an IDE like PyCharm to automatically submit the input file.
+2. You can also make us of ```Script Parameters``` of an IDE like PyCharm to automatically submit the input file.
+```
+Run -> Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_name' in 'Parameters'
+```
+
+<p align="center"><img width="400" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/edit_configurations.png?raw=true"></p>
+
 <p align="center"><img width="600" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/pycharm_script_parameters.png?raw=true="></p>
 
 :thought_balloon: Future Scope
