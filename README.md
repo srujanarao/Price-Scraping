@@ -23,21 +23,6 @@ cd src
 python3 sku_US.py input_file_US.csv
 ```
 
-:page_facing_up: Sample Output
----
- 1. results_US.csv
-
- <p align="center"><img width="800" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_US.png?raw=true"></p>
- 
- 2. results_CA.csv
- 
- <p align="center"><img width="800" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_CA.png?raw=true"></p>
-
- 3. results_CA_9PXM.csv
- 4. results_IT.csv
-
-<p align="center"><img width="300" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/Results_IT.png?raw=true"></p>
-
 :golf: Passing Input Files: Command line arguments and setting IDE script parameters
 ---
 1. The first way of passing an input file to the script is through ```command line arguments```. Ensure that the input files are saved in the same folder as the .py scripts. 
