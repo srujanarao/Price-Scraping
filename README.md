@@ -43,7 +43,12 @@ cd Price-Scraping
 ```
 pip3 install -r requirements.txt
 ```
-4. Once all the requirements are installed, you will have to ```cd``` into the ```src``` folder. Once in the ```src``` folder, use the python3 command to run the ```.py``` scripts along with the name of the appropriate input file. python command can be allowed to point to Python 3 too.
+4. In order to run ```sku_IT.py```, you need to have the vendor portal's login credentials saved in a local file named ```IT_creds.py``` in the following format. Follow the same naming convention and replace 'username' and 'password' with the correct credentials.
+
+<p align="center"><img width="400" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/IT_creds.png?raw=true"></p>
+
+
+6. Once all the requirements are installed, you will have to ```cd``` into the ```src``` folder. Once in the ```src``` folder, use the python3 command to run the ```.py``` scripts along with the name of the appropriate input file. python command can be allowed to point to Python 3 too.
 ```
 cd src
 python3 sku_US.py input_file_US.csv
