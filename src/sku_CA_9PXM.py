@@ -33,11 +33,11 @@ min_price_list = []
 site_list = []
 generic_url_1 = 'https://www.cdw.ca'
 main_url_3 = f'https://www.pc-canada.com'
-driver = uc.Chrome(headless=False)      # Does not work with headless=True
+driver = uc.Chrome(headless=False)  # Does not work with headless=True
 driver.get(main_url_3)
 time.sleep(10)
 
-myuseragent = UserAgent("all", requestsPrefix=False).Random()
+myuseragent = UserAgent("all", requestsPrefix=True).Random()
 session = requests.Session()
 time.sleep(5)
 
@@ -98,7 +98,7 @@ for sku in sku_list:
             url2_list.append(link)
 
     if len(url2_list) == 0:
-        url2_final = "SKU Not Found in cendirect  website"
+        url2_final = "SKU Not Found in www.cendirect.com "
         sku_not_found = True
     else:
         url2_final = url2_list[0]
@@ -129,9 +129,9 @@ for sku in sku_list:
             sku_prices.append(price_3)
 
         else:
-            price_3 = "SKU Not Found in pc-canada website"
+            price_3 = "SKU Not Found in www.pc-canada.com"
     except:
-        price_3 = "SKU Not Found in pc-canada website"
+        price_3 = "SKU Not Found in www.pc-canada.com"
 
     print(f"SKU {sku} Prices from different websites are: {sku_prices} ")
     try:
