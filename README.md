@@ -65,7 +65,7 @@ The first way of passing an input file to the script is through ```command line 
 python3 sku_CA.py input_file_CA.csv
 ```
 #### 2. Setting IDE script parameters
-You can also make us of ```Script Parameters``` of an IDE like PyCharm to automatically submit the input file.
+You can also make use of ```Script Parameters``` of an IDE like PyCharm to automatically submit the input file.
 ```
 Edit Configurations -> Fill '-s' in 'Interpreter Options' and "input_file_name.csv" in 'Parameters'
 ```
