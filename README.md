@@ -13,6 +13,18 @@
   
 </p>
 
+:book: Description
+---
+This Project scrapes price data of SKUs from various websites. There are a total of 4 python scripts.
+
+* ***sku_US.py*** : This script is for scraping the price from  www.cdw.com.
+
+* ***sku_CA.py***: This script is for scraping price from www.cdw.ca. Note that this script does not cover 9PXM Tower and 9PXM Rackmount categories. So, you can remove those 2 categories of SKUs from the input SKU file.
+
+* ***sku_CA_9PXM.py*** : This script covers only 9PXM Tower and 9PXM Rackmount categories by visiting 3 different sites i.e., www.cdw.ca, www.pc-canada.com, and www.cendirect.com. The lowest price found in these 3 sites is updated as the ‘price’ corresponding to the SKU. You can remove all the other categories of SKUs from this input SKU file.
+
+* ***sku_IT.py***: This script is for scraping the price from www.ingrammicro.com. You need to have the login credentials locally stored in a file named ‘IT_creds.py’
+
 
 :rocket: Installation Steps
 ---
