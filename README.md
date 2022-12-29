@@ -1,6 +1,8 @@
 # README.md
 
 <p align="center">
+  <a href="#book-project-description">Description</a>
+  ::
   <a href="#rocket-installation-steps">Installation</a>
   ::
   <a href="#page_facing_up-passing-input-files-command-line-arguments-and-setting-ide-script-parameters">Input Files</a>
@@ -10,10 +12,9 @@
   <a href="#sparkles-contributors">Contributors</a>
     ::
   <a href="#email-support">Support</a>
-  
 </p>
-
-:book: Description
+  
+:book: Project Description
 ---
 This Project scrapes price data of SKUs from various websites. There are a total of 4 python scripts.
 
