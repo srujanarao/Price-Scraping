@@ -66,6 +66,10 @@ Run/Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_na
 
 <p align="center"><img width="600" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/pycharm_script_parameters.png?raw=true="></p>
 
+:pushpin: Key Points and Recommendations
+---
+1. 
+
 :thought_balloon: Future Scope
 ---
 1. More efficient ways to handle 'Access Denied' issues without compromising on run time. Currently implemented using headers and requests.Session()
