@@ -31,7 +31,7 @@ The goal of this project is to scrape price data of products based on their uniq
 
 :rocket: Installation Steps
 ---
-1. Save the input sku files in ```UTF-8 enabled``` csv format. Skipping this step will lead to errors during script execution. 
+1. Save all the input SKU files in ```UTF-8 enabled``` csv format. Skipping this step will lead to errors during script execution. 
 <br> ```File -> Save As -> CSV UTF-8(.csv)```</br>
 
 <p align="center"><img width="400" src="./assets/utf8_csv.png"></p>
