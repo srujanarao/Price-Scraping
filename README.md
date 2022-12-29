@@ -3,7 +3,7 @@
   ::
   <a href="#rocket-installation-steps">Installation</a>
   ::
-  <a href="#page_facing_up-passing-input-files-command-line-arguments-and-setting-ide-script-parameters">Input Files</a>
+  <a href="#page_facing_up-passing-input-files">Input Files</a>
   ::
   <a href="#thought_balloon-future-scope">Future Scope</a>
   ::
@@ -51,13 +51,15 @@ cd src
 python3 sku_US.py input_file_US.csv
 ```
 
-:page_facing_up: Passing Input Files: Command line arguments and setting IDE script parameters
+:page_facing_up: Passing Input Files
 ---
-1. The first way of passing an input file to the script is through ```command line arguments```. Ensure that the input files are saved in the same folder as the .py scripts. 
+#### 1. Command Line Arguments
+The first way of passing an input file to the script is through ```command line arguments```. Ensure that the input files are saved in the same folder as the .py scripts. 
 ```
 python3 sku_CA.py input_file_CA.csv
 ```
-2. You can also make us of ```Script Parameters``` of an IDE like PyCharm to automatically submit the input file.
+#### 2. Setting IDE script parameters
+You can also make us of ```Script Parameters``` of an IDE like PyCharm to automatically submit the input file.
 ```
 Run/Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_name' in 'Parameters'
 ```
