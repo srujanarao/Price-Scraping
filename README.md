@@ -23,7 +23,7 @@ cd src
 python3 sku_US.py input_file_US.csv
 ```
 
-:golf: Passing Input Files: Command line arguments and setting IDE script parameters
+:page_facing_up: Passing Input Files: Command line arguments and setting IDE script parameters
 ---
 1. The first way of passing an input file to the script is through ```command line arguments```. Ensure that the input files are saved in the same folder as the .py scripts. 
 ```
