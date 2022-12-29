@@ -76,7 +76,7 @@ Run/Edit Configurations -> Fill '-s' in 'Interpreter Options' and 'input_file_na
 
 :warning: Known Issues
 ---
-* ***Unstable search results:***  It is observed that www.cendirect.com some times displays irrelevant results upon entering SKU in the search bar. Home page contents get displayed rather than a redirection to the relevant product results. This is an ```intermittent website issue``` and usually gets resolved after a couple of hours. So, the recommendation is to rerun the ```sku_CA_9PXM.py``` script after a few hours. Whenever this issue occurs, the script is written in a way to print and log the below message. 
+* ***Unstable search results:***  It is observed that www.cendirect.com some times displays irrelevant results upon entering SKU in the search bar. Home page contents get displayed rather than a redirection to the relevant product results. This is an ```intermittent website issue``` and usually gets resolved after a couple of hours. So, attempt to rerun the ```sku_CA_9PXM.py``` script after a few hours. Whenever this issue occurs, the script is written in a way to print and log the below message. 
 
 <p align="center"><img width="600" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/incorrect%20SR.png?raw=true"></p>
 
