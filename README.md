@@ -111,6 +111,7 @@ It is observed that www.cendirect.com sometimes displays irrelevant results upon
 ---
 1. More efficient ways to handle 'Access Denied' issues without compromising on run time. Currently implemented using ```headers, useragents and requests.Session()```
 2. More ways to handle intermittent inconsistent search results in www.cendirect.com
+3. Implementing a more complex and robust scraping logic that can handle changes in website structure to make the scripts more ```tolerant towards UI changes.```
 
 :sparkles: Contributors
 ---
