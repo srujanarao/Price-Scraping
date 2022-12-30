@@ -22,7 +22,7 @@ The goal of this project is to scrape price data of products based on their uniq
 
 * ***sku_US.py*** : This script is for scraping the price from  www.cdw.com.
 
-* ***sku_CA.py***: This script is for scraping price from www.cdw.ca. Note that this script does not cover 9PXM Tower and 9PXM Rackmount categories. So, you can remove those 2 categories of SKUs from the input SKU file.
+* ***sku_CA.py***: This script is for scraping the price from www.cdw.ca. Note that this script does not cover 9PXM Tower and 9PXM Rackmount categories. So, you can remove those 2 categories of SKUs from the input SKU file.
 
 * ***sku_CA_9PXM.py*** : This script covers only 9PXM Tower and 9PXM Rackmount categories by visiting 3 different sites i.e., www.cdw.ca, www.pc-canada.com, and www.cendirect.com. The lowest price found in these 3 sites is updated as the 'price' corresponding to the SKU. You can remove all the other categories of SKUs from the input SKU file.
 
@@ -100,7 +100,7 @@ It is possible that due to the slow loading of web page contents, expected locat
 :warning: Known Issues
 ---
 ####  Unstable Search Results
-It is observed that www.cendirect.com some times displays irrelevant results upon entering SKU in the search bar. Home page contents get displayed rather than a redirection to the relevant product results. This is an ```intermittent website issue``` and usually gets resolved after a couple of hours. So, rerun the ```sku_CA_9PXM.py``` script after a few hours. Whenever this issue occurs, the script is written in a way to print and log the below message. 
+It is observed that www.cendirect.com sometimes displays irrelevant results upon entering SKU in the search bar. Home page contents get displayed rather than a redirection to the relevant product results. This is an ```intermittent website issue``` and usually gets resolved after a couple of hours. So, rerun the ```sku_CA_9PXM.py``` script after a few hours. Whenever this issue occurs, the script is written in a way to print and log the below message. 
 
 <p align="center"><img width="600" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/incorrect%20SR.png?raw=true"></p>
 
