@@ -98,7 +98,7 @@ Note that each time a script is run a new csv output file is generated and the n
 It is possible that due to the slow loading of web page contents, expected locators or identifiers cannot be located by the script. This can eventually lead to script failures. If a script takes too much time to start its execution or fails due to an unresponsive web page, it is recommended to rerun the script again.
 
 #### 4. Changes in Website Structure
-Scraping heavily relies on user interface and its structure. If the target website gets some adjustments then our scraper may crash completely or it can give random data that we don’t want. This is a common scenario and that’s why it’s more difficult to maintain scrapers than writing it. So, keep an eye out on the website's UI patterns and if it changes, scrapers need to be modified accordingly.
+Scraping heavily relies on the user interface and its structure. If the target website gets some adjustments then our scraper may crash completely or it can give random data that we don’t want. This is a common scenario and that’s why it’s more difficult to maintain scrapers than writing it. So, keep an eye out for the website's UI patterns and if it changes, scrapers need to be modified accordingly.
 
 :warning: Known Issues
 ---
