@@ -41,7 +41,7 @@ The goal of this project is to scrape price data of products based on their uniq
 git clone https://github.com/srujanarao/Price-Scraping.git
 cd Price-Scraping
 ```
-3. This project uses Python 3, so make sure that [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installation/) are preinstalled. All requirements of the project are listed in the ```requirements.txt``` file. Use pip to install all of those. pip3 is an updated version of pip which is used basically for python 3+
+3. This project uses ```Python 3```, so make sure that [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installation/) are preinstalled. All requirements of the project are listed in the ```requirements.txt``` file. Use pip to install all of those. pip3 is an updated version of pip which is used basically for python 3+
 ```
 pip3 install -r requirements.txt
 ```
