@@ -94,6 +94,9 @@ Note that each time a script is run a new csv output file is generated and the n
 * ***Results_IT.csv***
 <p align="center"><img width="250" src="https://github.com/srujanarao/Price-Scraping/blob/main/assets/IT_results.png?raw=true"></p>
 
+#### 3. Slow Loading Web Pages
+It is possible that due to the slow loading of web page contents, expected locators or identifiers cannot be located by the script. This can eventually lead to script failures. If a script takes too much time to start its execution or fails due to an unresponsive web page, it is recommended to rerun the script again.
+
 :warning: Known Issues
 ---
 ####  Unstable Search Results
