@@ -31,7 +31,7 @@ price_list = []
 login_page = 'https://www.ingrammicro.com/IMD_WASWeb/jsp/login/corporateVendorLogin.jsp'
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False)     # Does not work with headless=True
+    browser = p.chromium.launch(headless=False, slow_mo=100)     # Does not work with headless=True
     page = browser.new_page()
     page.goto(login_page)
     page.fill('input#username-field', IT_creds.USER)
